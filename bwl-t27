@@ -1,0 +1,60 @@
+#BlitzWolf BW-LT27 AC100-240V RGBWW+CW 9W E27 config for ESPHome
+esphome:
+  name: bwlt27
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: "Harepus"
+  password: "Konstabel"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bwlt27 Fallback Hotspot"
+    password: "GNnQTK1tquy7"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+
+light:
+  - platform: rgbww
+    name: bwlt27
+    id: bwlt27
+    red: output_red
+    green: output_green
+    blue: output_blue
+    warm_white: output_warm_white
+    cold_white: output_cold_white
+    cold_white_color_temperature: 6200 K
+    warm_white_color_temperature: 2800 K
+    restore_mode: RESTORE_DEFAULT_ON 
+    effects:
+      - random:
+      - strobe:
+      - flicker:
+      
+# Example output entry
+output:
+  - platform: esp8266_pwm
+    id: output_red
+    pin: GPIO15
+  - platform: esp8266_pwm
+    id: output_green
+    pin: GPIO5
+  - platform: esp8266_pwm
+    id: output_blue
+    pin: GPIO12
+  - platform: esp8266_pwm
+    id: output_warm_white
+    pin: GPIO4
+  - platform: esp8266_pwm
+    id: output_cold_white
+    pin: GPIO14
