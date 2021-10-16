@@ -1,0 +1,10 @@
+#Home Assistant sensor for avfall-og-gjenvinning/avfallshenting i Oslo kommune
+sensor:
+ - platform: scrape
+    name: Avfallshenting restavtall
+    resource: https://www.oslo.kommune.no/avfall-og-gjenvinning/avfallshenting/?sid=&street=<Din gateadresse i Oslo (gate + husnummer)>
+    select: "#cpwysiwygtableid- > tbody:nth-child(3) > tr:nth-child(1) > td:nth-child(2)"
+  - platform: scrape
+    name: Avfallshenting papir
+    resource: https://www.oslo.kommune.no/avfall-og-gjenvinning/avfallshenting/?sid=&street=<Din gateadresse i Oslo (gate + husnummer)>
+    select: "#cpwysiwygtableid- > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(2)"
