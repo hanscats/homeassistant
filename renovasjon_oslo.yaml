@@ -8,3 +8,15 @@ sensor:
     name: Avfallshenting papir
     resource: https://www.oslo.kommune.no/avfall-og-gjenvinning/avfallshenting/?sid=&street=<Din gateadresse i Oslo (gate + husnummer)>
     select: "#cpwysiwygtableid- > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(2)"
+    
+    
+# I Lovelace:
+type: entities
+entities:
+  - entity: sensor.avfallshenting_restavtall
+    name: Restavfall
+    icon: mdi:delete
+  - entity: sensor.avfallshenting_papir
+    name: Papir
+    icon: mdi:newspaper-variant-outline
+title: Avfallshenting
